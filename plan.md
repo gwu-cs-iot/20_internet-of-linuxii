@@ -7,9 +7,9 @@ Components
 2. Host Operations need to be defined so that the linux kernel can run on a host system. 
 
 Taken from https://github.com/lkl/linux/blob/master/arch/lkl/include/uapi/asm/host_ops.h
-/**
+
  * lkl_host_operations - host operations used by the Linux kernel
- *
+
  * These operations must be provided by a host library or by the application
  * itself.
  *
