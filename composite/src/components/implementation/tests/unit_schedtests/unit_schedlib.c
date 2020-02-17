@@ -157,7 +157,15 @@ test_timeout_wakeup(void)
 struct lkl_host_operations lkl_host_ops = {
 
 };
-void lkl_bug(const char *, ...);
+void lkl_bug(const char * rand, ...){
+  return;
+}
+
+int lkl_printf(const char * fmt, ...)
+{
+
+  return 0;
+}
 
 void
 cos_init(void)
@@ -168,7 +176,7 @@ cos_init(void)
 
 	long ret;
 	char cmdline[16];
-	ret = lkl_start_kernel(&lkl_host_ops, cmdline);
+	lkl_start_kernel(&lkl_host_ops, cmdline);
 
 
 	printc("Unit-test for the scheduling library (sl)\n");
