@@ -91,10 +91,10 @@ I have wrote some initial steps and thoughts about the components and put them a
 
 Through this project I am enabling composite to have more application and functionality by providing these libraries. An example of this is how we could get device drivers running on composite. Because composite is scalable and can be run on embedded systems and allows components that used to trust each other to not trust each other anymore and  lkl will be on composite I need to prioritize designing a safe, secure but efficient system. I will be following some of the guidelines on how to build secure internet of things system:
 
-**“Incorporate Security at the design phase” **
+**“Incorporate Security at the design phase”**
 I will be using the most recent security features and API’s that composite provides throughout the entire design process. I will also meet with Gabe throughout the process to make sure everything I am doing is not compromising the composite system.
 
-**“Promote security updates and vulnerability management” **
+**“Promote security updates and vulnerability management”**
 I will be running composite and lkl through a bed of automated test suites that will make sure the lkl and composite communication is both safe and secure. Also, because linux and lkl is updated frequently and is serviced by a host of developers we can be sure we are on an updated system.
 
 **“Build on recognized security practices”**
@@ -107,7 +107,7 @@ I need to make sure that while I am ensuring safe and secure handling of threads
 **Promote Transparency across Iot**
 Because composite is open source, my project will be as well. This means that if someone finds that I am violating policies that are making composite less secure they can update the code or let me know. 
 
-**Connect carefully and deliberately **
+**Connect carefully and deliberately**
 A lot of lkl is focused around drivers which can be network drivers. This means we need to prioritize that we are making our connections deliberately and with purpose.
 
 I will be doing everything. 
