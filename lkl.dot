@@ -1,14 +1,23 @@
+<<<<<<< HEAD
 graph G {
+=======
+digraph G {
+>>>>>>> 1bffe61... added pics for demo
     subgraph cluster_0 {
         style = filled;
         color = lightgrey;
         node [style = filled, color=white];
+<<<<<<< HEAD
         LKL_System_Call_API -- Linux_Kernel -- Linux_Device_Driver;
+=======
+        LKL_System_Call_API -> Linux_Kernel -> Linux_Device_Driver;
+>>>>>>> 1bffe61... added pics for demo
         label = "Composite Interaction with LKL";
     }
 
 
 
+<<<<<<< HEAD
     composite  -- LKL_System_Call_API [label = "LKL System Call"];
     Linux_Kernel -- Native_Host_Operations;
     Native_Host_Operations -- Semaphore_Operations;
@@ -20,6 +29,19 @@ graph G {
     Native_Host_Operations -- IO_Memory_Operations;
     Native_Host_Operations -- Jmp_Buf;
     composite -- Native_Host_Operations;
+=======
+    composite  -> LKL_System_Call_API [label = "LKL System Call"];
+    Linux_Kernel -> Native_Host_Operations;
+    Native_Host_Operations -> Semaphore_Operations;
+    Native_Host_Operations -> Mutex_Operations;
+    Native_Host_Operations -> Thread_Operations;
+    Native_Host_Operations -> Thread_Local_torage;
+    Native_Host_Operations -> Memory_Operations;
+    Native_Host_Operations -> Timer;
+    Native_Host_Operations -> IO_Memory_Operations;
+    Native_Host_Operations -> Jmp_Buf;
+    composite -> Native_Host_Operations;
+>>>>>>> 1bffe61... added pics for demo
 
 
 
