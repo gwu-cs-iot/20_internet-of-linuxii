@@ -1,0 +1,30 @@
+digraph G {
+    subgraph cluster_0 {
+        style = filled;
+        color = lightgrey;
+        node [style = filled, color=white];
+        LKL_System_Call_API -> Linux_Kernel -> Linux_Device_Driver;
+        label = "Composite Interaction with LKL";
+    }
+
+
+
+    composite  -> LKL_System_Call_API [label = "LKL System Call"];
+    Linux_Kernel -> Native_Host_Operations;
+    Native_Host_Operations -> Semaphore_Operations;
+    Native_Host_Operations -> Mutex_Operations;
+    Native_Host_Operations -> Thread_Operations;
+    Native_Host_Operations -> Thread_Local_torage;
+    Native_Host_Operations -> Memory_Operations;
+    Native_Host_Operations -> Timer;
+    Native_Host_Operations -> IO_Memory_Operations;
+    Native_Host_Operations -> Jmp_Buf;
+    composite -> Native_Host_Operations;
+
+
+
+
+
+
+
+}
