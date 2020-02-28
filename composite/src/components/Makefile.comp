@@ -4,7 +4,7 @@ IMPLDIR=$(CDIR)/implementation/
 INTERDIR=$(CDIR)/interface/
 LIBDIR=$(CDIR)/lib/
 MANDITORY_LIB=cos_manditory.o
-CINC=-I./ -I$(CDIR)/include/ -I$(SHAREDINC) -I$(CDIR)/lib/ck/include -I$(CDIR)/lib/ps/ -I$(CDIR)/lib/libcxx/include
+CINC=-I./ -I$(CDIR)/include/ -I$(SHAREDINC) -I$(CDIR)/lib/ck/include -I$(CDIR)/lib/ps/ -I$(CDIR)/lib/libcxx/include -I$(CDIR)/lib/lkl/linux/tools/lkl/include/ -I$(CDIR)/lib/lkl/linux/tools/lkl/tests/
 
 MUSLDIR=$(CDIR)/lib/musl-1.1.11
 MUSLBIN=$(MUSLDIR)/bin
@@ -37,6 +37,7 @@ LUABASE=$(CDIR)/lib/lua
 LUADIR=$(LUABASE)/lua-5.2.1
 LUAOBJ=$(LUABASE)/cos/lua_lang.o
 LUAINC=-I$(LUADIR)/src -I$(LUABASE)/cos/include
+
 
 INC_PATH=-I./ -I$(CDIR)/include/ -I$(CDIR)/interface/ -I$(SHAREDINC) -I$(CKINCDIR)
 SHARED_FLAGS=-fno-merge-constants -nostdinc -nostdlib -fno-pic
