@@ -30,7 +30,7 @@ crt_sem_up(struct crt_sem *s)
 
 
 
-  while(currentThreads >= s->N)
+  while(currentThreads >= s->max_threads)
     {
       crt_blkpt_checkpoint(&s->blkpt, &chkpt);
       crt_blkpt_wait(&s->blkpt, 0, &chkpt);
