@@ -40,6 +40,14 @@ crt_sem_up(struct crt_sem *s)
 }
 
 static inline void
+crt_sem_init(struct crt_sem *s, int size)
+{
+
+  s->max_threads = count;
+  s->count = 0;
+}
+
+static inline void
 crt_sem_down(struct crt_sem *s)
 {
   struct crt_blkpt_checkpoint chkpt;
