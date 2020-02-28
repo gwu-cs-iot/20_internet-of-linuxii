@@ -39,6 +39,19 @@ crt_sem_up(struct crt_sem *s)
 
 }
 
+static inline void
+crt_sem_down(struct crt_sem *s)
+{
+  struct crt_blkpt_checkpoint chkpt;
+
+  int currentThreads = ps_faa(&s->count, -1);
+
+  while(currentThreads <= s->max_threads)
+    {
+      crt_blkpt_trigger(&s->blkpt, 0);
+    }
+}
+
 static inline int
 crt_lock_init(struct crt_lock *l)
 {
