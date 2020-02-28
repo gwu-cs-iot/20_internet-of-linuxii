@@ -1,9 +1,11 @@
 #ifndef COS_ASM_SIMPLE_STACKS_H
 #define COS_ASM_SIMPLE_STACKS_H
 
-#define __ASM__
-#include <consts.h>
-#undefine __ASM__
+#define MAX_STACK_SZ_BYTE_ORDER 12
+
+#ifndef MAX_STACK_SZ_BYTE_ORDER
+#error "Missing MAX_STACK_SZ_BYTE_ORDER, try including consts.h"
+#endif
 
 /* clang-format off */
 

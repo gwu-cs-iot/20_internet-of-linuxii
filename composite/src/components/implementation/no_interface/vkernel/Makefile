@@ -1,4 +1,5 @@
-COMPONENT=unit_schedlibtests.o
+ASM_OBJS=inv.o invvk.o
+COMPONENT=vkernel_boot.o
 INTERFACES=
 DEPENDENCIES=
 IF_LIB=
