@@ -35,6 +35,7 @@ crt_sem_up(struct crt_sem *s)
       crt_blkpt_checkpoint(&s->blkpt, &chkpt);
       crt_blkpt_wait(&s->blkpt, 0, &chkpt);
     }
+  return;
 
 }
 
