@@ -4,6 +4,7 @@ IFNAME=$(lastword $(subst /, ,$(shell pwd)))
 SUBDIRS=$(wildcard */)
 
 CLIB=complib.o
+LKLLIB = liblkl.a
 IF_INCLUDE=$(foreach I,$(INTERFACES),-I$(INTERDIR)/$(I)/)
 DEP_INC=$(foreach D,$(DEPENDENCIES),-I$(INTERDIR)/$(D)/) -I$(INTERDIR)/qfault
 
@@ -60,6 +61,7 @@ clean:
 	@for dir in $(SUBDIRS) ; do \
 		$(MAKE) -C $$dir clean ; \
 	done
+
 
 fresh: clean all
 

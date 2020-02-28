@@ -5,8 +5,22 @@
  */
 
 #include <stdio.h>
-#include <stdint.h>
+#include <unistd.h>
 #include <string.h>
+#include <time.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <lkl.h>
+#include <sys/types.h>
+#include <lkl_host.h>
+#include <sys/stat.h>
+
+
+#include <fcntl.h>
+#include <sys/epoll.h>
+#include <sys/ioctl.h>
+
+#include <test.h>
 
 #include <cos_component.h>
 #include <cobj_format.h>
@@ -140,11 +154,30 @@ test_timeout_wakeup(void)
 	sl_thd_param_set(high, spw.v);
 }
 
+struct lkl_host_operations lkl_host_ops = {
+
+};
+void lkl_bug(const char * rand, ...){
+  return;
+}
+
+int lkl_printf(const char * fmt, ...)
+{
+
+  return 0;
+}
+
 void
 cos_init(void)
 {
 	struct cos_defcompinfo *defci = cos_defcompinfo_curr_get();
 	struct cos_compinfo *   ci    = cos_compinfo_get(defci);
+	
+
+	long ret;
+	char cmdline[16];
+	lkl_start_kernel(&lkl_host_ops, cmdline);
+
 
 	printc("Unit-test for the scheduling library (sl)\n");
 	cos_meminfo_init(&(ci->mi), BOOT_MEM_KM_BASE, COS_MEM_KERN_PA_SZ, BOOT_CAPTBL_SELF_UNTYPED_PT);
