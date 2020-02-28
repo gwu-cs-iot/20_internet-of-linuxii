@@ -26,24 +26,27 @@ crt_sem_up(struct crt_sem *s)
 {
   struct crt_blkpt_checkpoint chkpt;
 
-  int currentThreads = ps_faa(&s->count, 1);
+  int thd_num_cur = ps_faa(&s->count, 1);
 
 
 
-  while(currentThreads >= s->max_threads)
+  while(1)
     {
       crt_blkpt_checkpoint(&s->blkpt, &chkpt);
+
+      if(s->count >= s->max_threads)
+        {
+          return;
+        }
       crt_blkpt_wait(&s->blkpt, 0, &chkpt);
     }
-  return;
-
 }
 
 static inline void
-crt_sem_init(struct crt_sem *s, int size)
+crt_sem_alloc(struct crt_sem *s, int size)
 {
 
-  s->max_threads = count;
+  s->max_threads = size;
   s->count = 0;
 }
 
@@ -52,12 +55,10 @@ crt_sem_down(struct crt_sem *s)
 {
   struct crt_blkpt_checkpoint chkpt;
 
-  int currentThreads = ps_faa(&s->count, -1);
+  int thd_num_cur = ps_faa(&s->count, -1);
 
-  while(currentThreads <= s->max_threads)
-    {
-      crt_blkpt_trigger(&s->blkpt, 0);
-    }
+  crt_blkpt_trigger(&s->blkpt, 0);
+
 }
 
 static inline int
